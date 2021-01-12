@@ -31,6 +31,7 @@ def calculate_distance(rA, rB):
     >>> r1 = np.array([0, 0, 0])
     >>> r2 = np.array([0, 0.1, 0])
     >>> calculate_distance(r1, r2)
+    0.1
     """
     # This function calculates the distance between two points given as numpy arrays.
     d = rA - rB
