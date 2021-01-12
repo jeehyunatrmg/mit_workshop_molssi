@@ -13,6 +13,25 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 
 
 def calculate_distance(rA, rB):
+    """
+    Calculate the distance between two points.
+
+    Parameters
+    ----------
+    rA, rB : np.ndarray
+        The coordinates of each point.
+
+    Returns
+    -------
+    dist : float
+        The distance between the two points.
+
+    Examples
+    --------
+    >>> r1 = np.array([0, 0, 0])
+    >>> r2 = np.array([0, 0.1, 0])
+    >>> calculate_distance(r1, r2)
+    """
     # This function calculates the distance between two points given as numpy arrays.
     d = rA - rB
     dist = np.linalg.norm(d)
@@ -157,6 +176,9 @@ def bond_histogram(bond_list, save_location=None, dpi=300, graph_min=0, graph_ma
 
 
 def build_bond_list(coordinates, max_bond=1.5, min_bond=0):
+
+    if min_bond < 0:
+        raise ValueError("The minimum bond length cannot be less than zero.")
 
     # Find the bonds in a molecule (set of coordinates) based on distance criteria.
     bonds = {}
